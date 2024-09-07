@@ -13,7 +13,10 @@ def convert_two_digits(digits):
     elif digits[0] == '0':
         return number_words[digits[1]][0]
     else:
-        return number_words[digits[0]][1] + 'y ' + number_words[digits[1]][0]
+        if digits[1] == '0':
+            return number_words[digits[0]][1] + 'y'
+        else:
+            return number_words[digits[0]][1] + 'y ' + number_words[digits[1]][0]
 
 
 big_numbers = {
@@ -40,7 +43,6 @@ big_numbers = {
     1:  "Thousand"
 }
 number_words = {
-    '0': [''],
     '1': ["One"],
     '2': ["Two", "Twent"],
     '3': ["Three", "Thirt"],
