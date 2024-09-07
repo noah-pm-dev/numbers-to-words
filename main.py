@@ -70,7 +70,7 @@ for num, i in enumerate(split):
 num_segments = len(split_num)
 
 print(split_num)
-for i in split_num:
+for num, i in enumerate(split_num):
     num_segments -= 1
     
     if set(i) == {'0'}:
@@ -86,7 +86,10 @@ for i in split_num:
             else:
                 stdout.write(number_words[i[0]][0] + ' Hundred')
         elif i[1] != '0':
-            stdout.write('and ' + convert_two_digits(i[1:]))
+            if num != 0:
+                stdout.write('and ' + convert_two_digits(i[1:]))
+            else:
+                stdout.write(convert_two_digits(i[1:]))
         elif i[2] != '0':
             stdout.write('and ' + number_words[i[2]][0])
     
