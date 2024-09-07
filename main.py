@@ -11,12 +11,12 @@ def convert_two_digits(digits):
         else:
             return number_words[digits[1]][1] + 'een'
     elif digits[0] == '0':
-        return number_words[digits[1]][0]
+        return ''
     else:
         if digits[1] == '0':
             return number_words[digits[0]][1] + 'y'
         else:
-            return number_words[digits[0]][1] + 'y ' + number_words[digits[1]][0]
+            return number_words[digits[0]][1] + 'y-' + number_words[digits[1]][0]
 
 
 big_numbers = {
