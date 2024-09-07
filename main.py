@@ -17,6 +17,13 @@ def convert_two_digits(digits):
 
 
 big_numbers = {
+    21: "Vigintillion",
+    20: "Novemdecillion",
+    19: "Octodecillion",
+    18: "Septendecillion",
+    17: "Sexdecillion",
+    16: "Quindecillion",
+    15:	"Quattuordecillion",
     14: "Tredecillion",
     13: "Duodecillion",
     12: "Undecillion",
@@ -47,7 +54,7 @@ number_words = {
 
 print("Input your number: ")
 num = input()[::-1]
-
+stdout.write("\033[32mResult:\033[0m\n")
 split_num = [num[i:i+3][::-1] for i in range(0, len(num), 3)][::-1]
 
 num_segments = len(split_num)
