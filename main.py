@@ -57,12 +57,22 @@ number_words = {
 print("Input your number: ")
 num = input()[::-1]
 stdout.write("\033[32mResult:\033[0m\n")
-split_num = [num[i:i+3][::-1] for i in range(0, len(num), 3)][::-1]
+split = [num[i:i+3][::-1] for i in range(0, len(num), 3)][::-1]
+
+split_num = split[:]
+for num, i in enumerate(split):
+    if set(i) == {'0'}:
+        split_num.pop(0)
+    else:
+        break
+
 
 num_segments = len(split_num)
 
+print(split_num)
 for i in split_num:
     num_segments -= 1
+    
     if set(i) == {'0'}:
         continue
     if len(i) == 1:
@@ -71,9 +81,14 @@ for i in split_num:
         stdout.write(convert_two_digits(i))
     elif len(i) == 3:
         if i[0] != '0':
-            stdout.write(number_words[i[0]][0] + ' Hundred and ' + convert_two_digits(i[1:]))
-        else:
-            stdout.write(convert_two_digits(i[1:]))
+            if i[1:] != '00':   
+                stdout.write(number_words[i[0]][0] + ' Hundred and ' + convert_two_digits(i[1:]))
+            else:
+                stdout.write(number_words[i[0]][0] + ' Hundred')
+        elif i[1] != '0':
+            stdout.write('and ' + convert_two_digits(i[1:]))
+        elif i[2] != '0':
+            stdout.write('and ' + number_words[i[2]][0])
     
     try:
         stdout.write(' ' + big_numbers[num_segments] + ' ')
