@@ -63,6 +63,8 @@ num_segments = len(split_num)
 
 for i in split_num:
     num_segments -= 1
+    if set(i) == {'0'}:
+        continue
     if len(i) == 1:
         stdout.write(number_words[i][0])
     elif len(i) == 2:
