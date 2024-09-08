@@ -108,7 +108,7 @@ for num, i in enumerate(split_num):
         for i in big_number_roots:
             try:
                 if num_segments in range(i, i + 10):
-                    stdout.write(' ' + big_number_prefixes[num_segments - i] + big_number_roots[i].lower() + ' ')
+                    stdout.write((' ' + big_number_prefixes[num_segments - i] + big_number_roots[i] + ' '_.title()))
                     continue
             except KeyError:
                 print('\033[33mwtf\033[0m')
