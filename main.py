@@ -19,18 +19,28 @@ def convert_two_digits(digits):
             return number_words[digits[0]][1] + 'y-' + number_words[digits[1]][0]
 
 
-big_numbers = {
-    21: "Vigintillion",
-    20: "Novemdecillion",
-    19: "Octodecillion",
-    18: "Septendecillion",
-    17: "Sexdecillion",
-    16: "Quindecillion",
-    15:	"Quattuordecillion",
-    14: "Tredecillion",
-    13: "Duodecillion",
-    12: "Undecillion",
+big_number_roots = {
     11: "Decillion",
+    21: "Vigintillion",
+    31: "Trigintillion",
+    41: "Quadragintillion",
+    51: "Quinquagintillion"
+}
+
+big_number_prefixes = {
+    0: '',
+    1: 'Un',
+    2: 'Duo',
+    3: 'Tre',
+    4: 'Quattuor',
+    5: 'Quin',
+    6: 'Sex',
+    7: 'Septen',
+    8: 'Octo',
+    9: 'Novem',
+}
+
+big_numbers = {
     10: "Nonillion",
     9:  "Octillion",
     8:  "Septillion",
@@ -93,9 +103,19 @@ for num, i in enumerate(split_num):
         elif i[2] != '0':
             stdout.write('and ' + number_words[i[2]][0])
     
-    try:
+    if num_segments > 10:
+        for i in big_number_roots:
+            try:
+                if num_segments in range(i, i + 10):
+                    stdout.write(' ' + big_number_prefixes[num_segments - i] + big_number_roots[i].lower() + ' ')
+                    continue
+            except KeyError:
+                print('\033[33mwtf\033[0m')
+    else:
         stdout.write(' ' + big_numbers[num_segments] + ' ')
-    except KeyError:
-        break
+    # try:
+    #     stdout.write(' ' + big_numbers[num_segments] + ' ')
+    # except KeyError:
+    #     break
 
 print()
