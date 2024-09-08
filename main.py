@@ -52,6 +52,7 @@ big_numbers = {
     2:  "Million",
     1:  "Thousand"
 }
+
 number_words = {
     '1': ["One"],
     '2': ["Two", "Twent"],
