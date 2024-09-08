@@ -108,7 +108,7 @@ for num, i in enumerate(split_num):
             else:
                 stdout.write(number_words[i[0]][0] + " Hundred")
         elif i[1] != "0":
-            if num != 0:
+            if num != 0 and i[0] != "0":
                 stdout.write("and " + convert_two_digits(i[1:]))
             else:
                 stdout.write(convert_two_digits(i[1:]))

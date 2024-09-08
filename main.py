@@ -97,7 +97,7 @@ for num, i in enumerate(split_num):
             else:
                 stdout.write(number_words[i[0]][0] + ' Hundred')
         elif i[1] != '0':
-            if num != 0:
+            if num != 0 and i[0] != "0":
                 stdout.write('and ' + convert_two_digits(i[1:]))
             else:
                 stdout.write(convert_two_digits(i[1:]))
@@ -108,7 +108,7 @@ for num, i in enumerate(split_num):
         for i in big_number_roots:
             try:
                 if num_segments in range(i, i + 10):
-                    stdout.write((' ' + big_number_prefixes[num_segments - i] + big_number_roots[i] + ' '_.title()))
+                    stdout.write((' ' + big_number_prefixes[num_segments - i] + big_number_roots[i] + ' ').title())
                     continue
             except KeyError:
                 print('\033[33mwtf\033[0m')
